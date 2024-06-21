@@ -1,0 +1,10 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GolfScorecard.AboutPage">
+
+    <StackLayout Padding="20">
+        <Label Text="About Golf Scorecard App" FontSize="24" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+        <!-- Add any additional information about the app here -->
+    </StackLayout>
+
+</ContentPage>

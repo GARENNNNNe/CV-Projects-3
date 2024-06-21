@@ -1,0 +1,10 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GolfScorecard.SettingsPage">
+
+    <StackLayout Padding="20">
+        <Label Text="Settings" FontSize="24" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+        <!-- Add settings controls here -->
+    </StackLayout>
+
+</ContentPage>

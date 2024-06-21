@@ -1,0 +1,96 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GolfScorecard.MainPage"
+             Title="Thorpe Wood Golf Club Scorecard">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <!-- Title -->
+            <Label Text="Thorpe Wood Golf Club Scorecard" FontSize="24" HorizontalOptions="Center" Margin="0,0,0,20" />
+
+            <!-- Hole Labels -->
+            <Grid ColumnSpacing="1" RowSpacing="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Hole" FontSize="18" HorizontalTextAlignment="Center" Grid.Column="0" />
+                <Label Text="Par" FontSize="18" HorizontalTextAlignment="Center" Grid.Column="1" />
+                <Label Text="Yards" FontSize="18" HorizontalTextAlignment="Center" Grid.Column="2" />
+                <Label Text="Stroke Index" FontSize="18" HorizontalTextAlignment="Center" Grid.Column="3" />
+                <Label Text="Score" FontSize="18" HorizontalTextAlignment="Center" Grid.Column="4" />
+            </Grid>
+
+            <BoxView HeightRequest="1" Color="Gray" Margin="0,5,0,5" />
+
+            <!-- Hole Entries -->
+            <CollectionView ItemsSource="{Binding GolfHoles}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnSpacing="1" RowSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="60" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding HoleNumber}" FontSize="16" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Column="0" />
+                            <Label Text="{Binding Par}" FontSize="16" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Column="1" />
+                            <Label Text="{Binding Yards}" FontSize="16" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Column="2" />
+                            <Label Text="{Binding StrokeIndex}" FontSize="16" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Column="3" />
+                            <Entry Text="{Binding Score}" FontSize="16" HorizontalOptions="Center" WidthRequest="50" Grid.Column="4" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.Footer>
+                    <StackLayout>
+                        <!-- Front Nine Score -->
+                        <BoxView HeightRequest="1" Color="Gray" Margin="0,5,0,5" />
+                        <Grid ColumnSpacing="10" Margin="0,5,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Front Nine Score Par 37:" FontSize="18" Grid.Column="0" />
+                            <Label Text="{Binding FrontNineScore}" FontSize="18" Grid.Column="1" />
+                        </Grid>
+
+                        <!-- Back Nine Score -->
+                        <BoxView HeightRequest="1" Color="Gray" Margin="0,5,0,5" />
+                        <Grid ColumnSpacing="10" Margin="0,5,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Back Nine Score Par 35:" FontSize="18" Grid.Column="0" />
+                            <Label Text="{Binding BackNineScore}" FontSize="18" Grid.Column="1" />
+                        </Grid>
+
+                        <!-- Total Score -->
+                        <BoxView HeightRequest="1" Color="Gray" Margin="0,5,0,5" />
+                        <Grid ColumnSpacing="10" Margin="0,5,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Total Score Par 72:" FontSize="18" Grid.Column="0" />
+                            <Label Text="{Binding TotalScore}" FontSize="18" Grid.Column="1" />
+                        </Grid>
+                    </StackLayout>
+                </CollectionView.Footer>
+            </CollectionView>
+
+            <!-- Buttons -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,30,0,0">
+                <Button Text="Calculate Total" Clicked="OnCalculateTotalClicked" />
+                <Button Text="Reset" Clicked="OnResetClicked" Margin="20,0,0,0" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
